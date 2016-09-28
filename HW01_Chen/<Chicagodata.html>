@@ -1,0 +1,57 @@
+<html>
+<head>
+<script src="Chicagodata.json"></script>
+ 
+<script type="text/javascript">
+var salaries=[];
+var sdata1,sdata2,sdata3;
+
+
+
+
+
+    var myArray = data.data;
+
+    for (i=0;i<data.data.length;i++)
+    {
+    	salaries[i]=[data.data[i][11],data.data[i][10]];
+    }
+    
+   
+    
+    sdata1 = salaries.filter(test1);
+    count1=sdata1.length;
+    console.log(count1);
+
+ 
+    sdata2= salaries.filter(test2);
+    count2=sdata2.length;
+    console.log(count2); 
+
+    var sdata3 = salaries.filter(test3).reduce(sum,0);
+    
+    console.log("Total Salary paid to Police:"+sdata3);
+    
+
+function test1(s){return (s[0]>200000 && s[1]=="POLICE");}
+function test2(s){return (s[0]>200000 && s[1]=="CITY COUNCIL");}
+function test3(s){return (s[0]>0 && s[1]=="POLICE");}
+
+function sum (num1, total){
+	return total+=parseInt(num1[0]);
+}
+
+
+
+
+
+</script>
+
+</head>
+
+<body>
+<h1 id='demo'>hello</h1>
+
+</body>
+
+</html>
